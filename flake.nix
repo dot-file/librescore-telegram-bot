@@ -1,8 +1,5 @@
-let
-  description = "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
-in
 {
-  inherit description;
+  description = "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
@@ -21,9 +18,7 @@ in
       };
 
       homeManagerModules = {
-        librescore-telegram-bot = import ./home-manager.nix {
-          inherit description;
-        };
+        librescore-telegram-bot = import ./home-manager.nix;
         default = self.homeManagerModules.librescore-telegram-bot;
       };
     });

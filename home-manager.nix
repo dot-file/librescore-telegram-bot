@@ -1,4 +1,3 @@
-{ description }:
 { pkgs, config, lib, ... }:
 
 let
@@ -24,7 +23,7 @@ in
 {
   options = {
     services.pythonTelegramBots.librescore-telegram-bot = {
-      enable = lib.mkEnableOption description;
+      enable = lib.mkEnableOption "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
     };
   };
 
