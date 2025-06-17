@@ -2,6 +2,7 @@
 
 let
   package = import ./package.nix { inherit pkgs; };
+  description = "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
   configPath = "~/.config/pytelegrambots/librescore-telegram-bot/config";
   wrapper = pkgs.writeShellScriptBin "librescore-telegram-bot-wrapper" ''
     set -a
@@ -23,7 +24,7 @@ in
 {
   options = {
     services.pythonTelegramBots.librescore-telegram-bot = {
-      enable = lib.mkEnableOption "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
+      enable = lib.mkEnableOption description;
     };
   };
 
