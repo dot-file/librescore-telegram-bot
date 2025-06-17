@@ -16,10 +16,12 @@
         librescore-telegram-bot = pkgs.callPackage ./package.nix { };
         default = self.packages.${system}.librescore-telegram-bot;
       };
-
+    })
+    //
+    {
       homeManagerModules = {
         librescore-telegram-bot = import ./home-manager.nix;
         default = self.homeManagerModules.librescore-telegram-bot;
       };
-    });
+    };
 }
