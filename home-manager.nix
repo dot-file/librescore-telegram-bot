@@ -14,6 +14,8 @@ let
       exit 1
     fi
 
+    export LIBRESCORE_BIN="${lib.getExe pkgs.dl-librescore}"
+
     . $CONFIG
 
     ${package}/bin/librescore-telegram-bot
