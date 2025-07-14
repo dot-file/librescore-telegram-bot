@@ -19,9 +19,9 @@
     })
     //
     {
-      homeManagerModules = {
-        librescore-telegram-bot = import ./home-manager.nix;
-        default = self.homeManagerModules.librescore-telegram-bot;
+      nixosModules = {
+        librescore-telegram-bot = import ./nixos.nix;
+        default = self.nixosModules.librescore-telegram-bot;
       };
     };
 }
