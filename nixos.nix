@@ -18,7 +18,7 @@ in
     systemd.services."librescore-telegram-bot" = {
       inherit description;
       after = [ "network-online.target" ];
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = [ "network-online.target" ];
 
       serviceConfig = {
         Restart = "always";
