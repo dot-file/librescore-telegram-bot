@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     systemd.services."librescore-telegram-bot" = {
       inherit description;
-      after = "network-online.target";
+      after = [ "network-online.target" ];
       wantedBy = [ "network-online.target" ];
 
       serviceConfig = {
