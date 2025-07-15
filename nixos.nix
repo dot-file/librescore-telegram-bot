@@ -3,7 +3,6 @@
 let
   package = import ./package.nix { inherit pkgs; };
   description = "Telegram bot that allows you to download pdf, midi and mp3 from musescore.com";
-  configPath = "/etc/pytelegrambots/librescore-telegram-bot/config";
 
   cfg = config.services.pythonTelegramBots.librescore-telegram-bot;
 in
@@ -11,6 +10,12 @@ in
   options = {
     services.pythonTelegramBots.librescore-telegram-bot = {
       enable = lib.mkEnableOption description;
+
+      configDir = lib.mkOption {
+        type = lib.types.str;
+        default = "/etc/pytelegrambots/librescore-telegram-bot";
+        description = "Config directory of the bot.";
+      };
     };
   };
 
@@ -28,7 +33,7 @@ in
       script = ''
         set -a
 
-        CONFIG=${configPath}
+        CONFIG=${cfg.configDir}/config
         if [ ! -f $CONFIG ]
         then
           echo "Config file at $CONFIG doesn't exist"
