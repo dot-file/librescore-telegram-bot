@@ -19,7 +19,7 @@ in
       inherit description;
       after = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
-      preStart = "while ! ${pkgs.ping}/bin/ping -c1 1.1.1.1; do sleep 1; done";
+      #preStart = "while ! ${pkgs.ping}/bin/ping -c1 1.1.1.1; do sleep 1; done";
 
       serviceConfig = {
         Restart = "always";
