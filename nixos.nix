@@ -23,6 +23,7 @@ in
     systemd.services."librescore-telegram-bot" = {
       inherit description;
       after = [ "network-online.target" ];
+      wants = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
       preStart = "while ! ${pkgs.iputils}/bin/ping -c1 1.1.1.1; do sleep 1; done";
 
